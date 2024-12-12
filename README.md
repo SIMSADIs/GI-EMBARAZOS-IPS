@@ -13,11 +13,11 @@ Para llevar a cabo el desarrollo de este proyecto, fue necesario seguir los sigu
 
 ## Instalación
 
-- Instalar Java jdk dependiendo de su sistema operativo. 
-- Instalar Node js
-- Instalar sushi FHIR. Para este último:
+- Instalar **Java jdk** dependiendo de su sistema operativo. Para ello, ingresar a https://www.oracle.com/cl/java/technologies/downloads/.
+- Instalar **Node js**. Para ello ingresar a https://nodejs.org/en.
+- Instalar **sushi FHIR**. Para este último:
   - Abrir el símbolo del sistema o cmd en el buscador de windows
-  - Escribir npm install -g fsh-sushi y ejecutar.
+  - Escribir **npm install -g fsh-sushi** y ejecutar.
   ```
   npm install -g fsh-sushi
   ```
@@ -25,7 +25,7 @@ Para llevar a cabo el desarrollo de este proyecto, fue necesario seguir los sigu
   ```
   cd C:\Users\usuario\Desktop\Nombre_Carpeta
   ```
-  - Escribir sushi help para verificar su instalación, o escribir sushi -v para verificar la versión de sushi.
+  - Escribir *sushi help* para verificar su instalación, o escribir *sushi -v* para verificar la versión de sushi.
   ```
   sushi help
   ```
@@ -33,9 +33,9 @@ Para llevar a cabo el desarrollo de este proyecto, fue necesario seguir los sigu
   sushi -v
   ```
 - Instalar las herramientas de publicación para la guía de implementación:
-  - Primero, instalar Ruby Jeckyll. Ingresar a https://jekyllrb.com/docs/installation/ y escoger según su sistema operativo.
-  - Descargar e instalar Ruby. Instalar las 3 opciones que aparecen al momento de realizar la instalación. Ingresar a https://rubyinstaller.org/. Esta es especificamente para windows.
-  - Escribir en símbolo del sistema gem install jekyll bundler.
+  - Primero, instalar **Ruby Jeckyll**. Ingresar a https://jekyllrb.com/docs/installation/ y escoger según su sistema operativo.
+  - Descargar e instalar **Ruby**. Instalar las 3 opciones que aparecen al momento de realizar la instalación. Ingresar a https://rubyinstaller.org/. Esta es especificamente para windows.
+  - Escribir en símbolo del sistema **gem install jekyll bundler**.
   ```
   gem install jekyll bundler
   ```
