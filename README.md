@@ -14,15 +14,18 @@ Para llevar a cabo el desarrollo de este proyecto, fue necesario seguir los sigu
 ## Instalación
 
 - Instalar [**Visual Studio Code**](https://code.visualstudio.com/download), el cual servirá como editor de código.
-- Instalar **Java jdk** dependiendo de su sistema operativo. Para ello, ingresar a [Java-downloads](https://www.oracle.com/cl/java/technologies/downloads/).
-- Instalar **Node js**. Para ello ingresar a https://nodejs.org/en.
+- Instalar **Java jdk** dependiendo de su sistema operativo. Para ello, ingresar a [Java-downloads](https://www.oracle.com/cl/java/technologies/downloads/) y seguir las instrucciones de instalación.
+- Instalar **Node js**. Para ello ingresar a [Node.js](https://nodejs.org/en) y seguir las instrucciones de instalación. Escribir *node -v* para verificar su versión.
+```
+node -v
+```
 - Instalar **sushi FHIR**. Para este último:
-  - Abrir el símbolo del sistema o cmd en el buscador de windows
+  - Abrir el símbolo del sistema o cmd en el buscador de windows.
   - Escribir **npm install -g fsh-sushi** y ejecutar.
   ```
   npm install -g fsh-sushi
   ```
-  ** Se debe tener en cuenta que con el comando cd dentro del símbolo del sistema, se puede cambiar de directorio si es que así lo desea, como paso previo a la instalación de sushi.
+  ** Se debe tener en cuenta que con el comando *cd* dentro del símbolo del sistema, se puede cambiar de directorio si es que así lo desea, como paso previo a la instalación de sushi. Ejemplo:
   ```
   cd C:\Users\usuario\Desktop\Nombre_Carpeta
   ```
@@ -35,7 +38,7 @@ Para llevar a cabo el desarrollo de este proyecto, fue necesario seguir los sigu
   ```
 - Instalar las herramientas de publicación para la guía de implementación:
   - Primero, instalar **Ruby Jeckyll**. Ingresar a [Jeckyll-installation](https://jekyllrb.com/docs/installation/) y escoger según su sistema operativo.
-  - Descargar e instalar **Ruby**. Instalar las 3 opciones que aparecen al momento de realizar la instalación. Ingresar a [Ruby-installation](https://rubyinstaller.org/). Esta es especificamente para windows.
+  - Descargar e instalar **Ruby**. Para ello, ingresar a [Ruby-installation](https://rubyinstaller.org/) e instalar las 3 opciones que aparecen al momento de realizar la instalación. Esta es especificamente para windows.
   - Escribir en símbolo del sistema **gem install jekyll bundler**.
   ```
   gem install jekyll bundler
@@ -44,32 +47,87 @@ Para llevar a cabo el desarrollo de este proyecto, fue necesario seguir los sigu
   ```
   jekyll -v
   ```
-![image](https://github.com/user-attachments/assets/8a42106c-d7ba-40c6-abdd-cfc654dff340)
+  <img src="https://github.com/user-attachments/assets/8a42106c-d7ba-40c6-abdd-cfc654dff340" alt="jekyll" width="550" height="350">
 
-- Se recomienda agregar *java* en las variables de entorno. Para ello, buscar **variables de entorno** en el buscador de windows, y seleccionar el botón **variables de entorno**. Allí, se deberá seleccionar **variables del sistema** y posteriormente se deberá hacer doble click en **path**.
-  A continuación, se deberá seleccionar el botón **examinar**. Allí se deberá buscar la ruta donde se instaló *java./java/bin* y se deberá seleccionar y guardar. Ejemplo:
+- Se recomienda agregar *java* en las variables de entorno.
+  - Para ello, buscar **variables de entorno** en el buscador de windows, y seleccionar el botón **variables de entorno**.
+  - Allí, se deberá seleccionar **variables del sistema** y posteriormente se deberá hacer doble click en **path**.
+  - A continuación, se deberá seleccionar el botón **examinar**. Allí se deberá buscar la ruta donde se instaló *java./java/bin* y se deberá seleccionar y guardar. Ejemplo:
   ```
   C:Program Files\Java\jdk-22\bin
+  ```
+  - Finalmente, en **variables de usuario**, sese deberá seleccionar el botón **Nueva**. Allí, colocar **JAVA_HOME** como nombre de la variable, mientras que en el valor de la variable, se deberá colocar la carpeta que almacena el archivo de Java. Ejemplo:
+  ```
+  C:Program Files\Java\jdk-22
   ```
 Ahora, ¡debiera estar configurado para comenzar a utilizar sushi para crear una guía de implementación!
 
 # Uso de SUSHI FHIR
 
-SUSHI es un compilador de código que se basa en el lenguaje **FHIR Shorthand (FSH)**. Este es un lenguaje utilizado para definir el contenido de las guías de implementación; para mayor detalle visitar el [Manual FHIR Shorthand](https://build.fhir.org/ig/HL7/fhir-shorthand/).
+SUSHI es un compilador de código que se basa en el lenguaje **FHIR Shorthand (FSH)**. Este es un lenguaje utilizado para definir el contenido de las guías de implementación, es decir, los artefactos FHIR. Para mayor detalle visitar el [Manual FHIR Shorthand](https://build.fhir.org/ig/HL7/fhir-shorthand/).
 
 ## Mejores prácticas
 
-Para comenzar con el desarrollo de una guía de implementación, se recomienda descargar e instalar [GitHub Desktop](https://desktop.github.com/download/). Esto permitirá un manejo más sencillo de los archivos y repositorios para los usuarios.
-- Se debe crear una cuenta en github.
-- Se debe seleccionar donde dice **New Repository** y se deberá crear un repositorio donde se almacenarán todos los archivos creados.
-- 
-  ![image](https://github.com/user-attachments/assets/f33f74ba-b404-43e5-afae-4a7f19c929db)
-- Se debe seleccionar el botón de **Code** y posteriormente escoger la opción **Open with GitHub Desktop**. Esto permitirá que el repositorio se abra en el github de escritorio instalado previamente.
- 
-  ![image](https://github.com/user-attachments/assets/8c7bfd9b-9f07-4a97-8a6b-7c323b0431fd)
-- GitHub de escritorio permitirá abrir el repositorio con Visual Studio Code. ¡Y Listo! Ya tendrás la carpeta creada en la cual podrás comenzar a desarrollar tu guía de implementación.
+Para comenzar con el desarrollo de una guía de implementación, se recomienda descargar e instalar [GitHub Desktop](https://desktop.github.com/download/). Esto permitirá al usuario un manejo más sencillo de los archivos al estar almacenados en un repositorio.
+Para ello, los pasos a seguir son:
+- [Crearse una cuenta en github](https://github.com/join). Si ya tiene una cuenta, omitir este paso.
+- Durante la instalación, iniciar sesión con su cuenta de GitHub.
+- Finalmente, verificar la instalación de git con *git -v* en el cmd.
+ ```
+ git -v
+ ```
+Posteriormente, se debe ingresar a [GitHub Sign in](https://github.com/login) y seleccionar donde dice **New Repository** para crear un nuevo repositorio, esto con el fin de que se almacenen todos los archivos y la información correspondiente. El repositorio debe llevar un nombre específico, en este proyecto se denomina GI-EMBARAZOS-IPS.
+
+![createrepo](https://github.com/user-attachments/assets/622068f4-7c20-462b-a8e9-1972d32e74fb)
+
+- Luego, se debe seleccionar el botón **Code** y posteriormente escoger la opción **Open with GitHub Desktop**. Esto permitirá que el repositorio se abra en el github de escritorio instalado previamente.
+- En GitHub Desktop se debe elegir la ubicación donde se descargará el repositorio, y luego se debe hacer presionar el botón **Clone**.
+- Una vez clonado el repositorio, se deberá hacer click derecho sobre la carpeta del repositorio y seleccionar **abrir con Visual Studio Code**. ¡Y Listo! Ya tendrás la carpeta creada en la cual podrás comenzar a desarrollar tu guía de implementación.
+
+![clonarrepo](https://github.com/user-attachments/assets/74f92cb0-c542-4c15-ab64-0dba44cd9c15)
 
 ## SUSHI Init
 
-Para 
-Consultar la [documentación de SUSHI](https://fshschool.org/docs/sushi/) para más información sobre el uso de sushi.
+Luego de abrir la carpeta en Visual Studio Code, se deberá abrir el terminal. En el terminal se puede observar el directorio en el cual se van a ejecutar los comandos y crear los archivos.
+  - En el terminal, se deberá escribir y ejecutar el comando **sushi init .** El punto al final es muy importante, ya que permitirá que los archivos se creen directamente en el repositorio de github.
+    ```
+    sushi init .
+    ```
+  - Se desplegarán una serie de elementos a rellenar por el usuario:
+    ```
+    Name:
+    Id (Default: fhir.example):
+    Canonical (Default: http://example.org):
+    Status (Default: draft):
+    Version (Default: 0.1.0):
+    Release Label (Default: ci-build):
+    Publisher Name (Default: Example Publisher):
+    Publisher Url (Default: http://example.org/example-publisher):
+    ```
+    Se pueden dejar vacíos y luego editarlos directamente en el archivo *sushi-config.yaml* de la guía.
+
+Y luego, para iniciar el proyecto en sushi se debe colocar *y*. Esto último permitirá la descarga de archivos como *genonce y publisher*.
+```
+Initialize SUSHI project in C:\Users\aguil\Desktop\IPS-RESUMEN-EMBARAZOS\GI-EMBARAZOS? [y/n]: y
+```
+Finalmente, ejecutar el siguiente comando para la generación de artefactos a modo de ejemplo:
+```
+sushi .
+```
+Todo esto se observa en la siguiente animación:
+
+![vscode](https://github.com/user-attachments/assets/9abb73e6-b23e-4d13-a50b-5aca4d6ec77b)
+
+- Consultar la [documentación de SUSHI/Incialización de proyecto](https://fshschool.org/docs/sushi/project/#initializing-a-sushi-project) y [SUSHI RUNNING](https://fshschool.org/docs/sushi/running/) para más información sobre el uso de sushi.
+
+## Configuración del archivo sushi-config.yaml
+
+Toda guía de implementación cuenta con un archivo denominado **sushi-config.yaml**, en el cual se configura la estructura y dependencias de una guía de implementación. En él se pueden editar metadatos (nombre de la guía, versión, estado, etc) así como taambién escribir todas las dependencias de la guía, es decir, los paquetes o recursos externos que la guía necesita para funcionar correctamente.
+En el caso de esta guía de implementación, las dependencias son:
+  - [Guía IPS CL](https://hl7chile.cl/fhir/ig/clips/0.2.0/)
+  - [Guía Core CL](https://hl7chile.cl/fhir/ig/clcore/1.9.1/)
+  - [Guía IPS Internacional](https://build.fhir.org/ig/HL7/fhir-ips/)
+
+- Consultar la [documentación de SUSHI/configuration](https://fshschool.org/docs/sushi/configuration/) para mayor información.
+
+## Package archivos...
