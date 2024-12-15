@@ -2,6 +2,8 @@
 
 Esta guía de implementación cuenta con las siguientes páginas, donde en cada una de ellas se define su respectivo contenido:
 - Página de inicio: Contiene el alcance de la guía, contexto, descripción, contenido de la guía y aspectos generales. Este último punto hace referencia al **proceso de solicitud de resumenes clínicos de pacientes**.
+- 
+![image](https://github.com/user-attachments/assets/41d361fd-6225-4b9e-8043-e45072a6c29e)
 
 Esta guía de implementación está compuesta de los siguientes artefactos FHIR:
 
