@@ -1,132 +1,49 @@
 # Estructura de la Guía de Implementación de Resumen de Datos Clínicos de Pacientes Embarazadas
 
 Esta guía de implementación cuenta con las siguientes páginas, donde en cada una de ellas se define su respectivo contenido:
-- Página de inicio: Contiene el alcance de la guía, contexto, descripción, contenido de la guía y aspectos generales. Este último punto hace referencia al **proceso de solicitud de resumenes clínicos de pacientes**, el cual se puede observar en la siguiente imagen.
+- **Página de inicio:** Contiene el alcance de la guía, contexto, descripción, contenido de la guía y aspectos generales. Este último punto hace referencia al **proceso de solicitud de resumenes clínicos de pacientes**, el cual se puede observar en la siguiente imagen.
  
 ![image](https://github.com/user-attachments/assets/41d361fd-6225-4b9e-8043-e45072a6c29e)
 
-- Página de Objetivos: Contiene tanto el objetivo general de la guía como los objetivos específicos de la misma.
-- Página de Casos de Uso: Contiene los casos de uso a partir del proceso identificado. Además, se establecen las operaciones FHIR a utilizar cuando se solicita un resumen, se crea y/o se actualiza un recurso. A modo de resumen, se tiene el siguiente diagrama con las transacciones por caso de uso:
+- **Página de Objetivos:** Contiene tanto el objetivo general de la guía como los objetivos específicos de la misma.
+- **Página de Casos de Uso:** Contiene los casos de uso a partir del proceso identificado. Además, se establecen las operaciones FHIR a utilizar tanto para cuando se solicita un resumen como para la creación y/o actualización de un recurso. A modo de resumen, se tiene el siguiente diagrama con las transacciones y operaciones FHIR por caso de uso:
   
+![image](https://github.com/user-attachments/assets/73eadd01-ae49-4df6-a28a-71afe0af3dda)
 
-[Modelo Logico Datos](https://github.com/SIMSADIs/GI-EMBARAZOS-IPS/blob/main/Modelo%20L%C3%B3gico%20de%20Datos.xlsx)
+- **Página de Artefactos:** Contiene todos los artefactos FHIR creados a partir de la guía de implementación IPS-CL. Estos artefactos comprenden los perfiles, ejemplos, extensiones y terminologías como ValueSets y CodeSystem. Para mayor información visitar [Manual FHIR Shorthand](https://build.fhir.org/ig/HL7/fhir-shorthand/reference.html). Este manual contiene información detalla sobre cómo utilizar e implementar cada uno de los artefactos FHIR.
+- **Página de Historial de Cambios:** Contiene todos los cambios que se han realizado en la guía desde que se obtuvo la primera versión en adelante. 
 
-Esta guía de implementación está compuesta de los siguientes artefactos FHIR:
+Teniendo en consideración los artefactos, esta guía de implementación está compuesta por lo siguiente:
 
 ## Perfiles
 
-Esta guía se compone de un total de 17 perfiles, cada uno adaptado de acuerdo a lo referenciado a partir de la IPS nacional. Estos perfiles cuentan con sus propias reglas de cardinalidad, haciendo que algunos elementos se vuelvan obligatorios, cambiando además su repetibilidad, entre otros elementos que se mencionarán a continuación:
+Esta guía contiene un total de 17 perfiles, cada uno adaptado de acuerdo a lo referenciado a partir de la IPS nacional. Sin embargo, para desarrollar cada perfil, fue necesario realizar un levantamiento de información con un profesional del área, en este caso fue con una matrona del hospital Carlos Van Buren de Valparaíso. Esta información, compone el denominado *Modelo Lógico de Datos* que contiene el cómo deben distribuirse los datos, su cardinalidad, si es que requieren de alguna extensión y/o de algún set de códigos correspondientes a un sistema de terminología en particular, etc. Este modelo se encuentra aquí: [Modelo Logico Datos](https://github.com/SIMSADIs/GI-EMBARAZOS-IPS/blob/main/Modelo%20L%C3%B3gico%20de%20Datos.xlsx) y puede ser descargado y visualizado con mayor detalle y detenimiento.
+Los perfiles son los siguientes:
+
+  - **Perfil Alergias:** Se basa en el perfil Alergias de IPS-CL, restringiendo cardinalidades.
+  - **Perfil Bundle:** Se basa en el perfil Bundle de IPS-CL. Los recursos Composition y Paciente siguen siendo los únicos obligatorios.
+  - **Perfil Composition:** Se basa en el perfil Composition de IPS-CL. Las secciones obligatorias son: Condición, Medicamentos, Alergias, Embarazo y Procedimientos.
+  - **Perfil Condición:** Se basa en el perfil Condición de IPS-CL. Se modifica el ValueSet proveniente de IPS por uno acorde a las patologías que puede sufrir una embarazada, denominado Condición de Salud o patologías de la paciente.
+  - **Perfil Hábitos de Alcohol:** Se basa en el perfil Consumo de Alcohol de IPS-CL. Se agregó un ValueSet sobre códigos UCUM utilizados como unidad de medida.
+  - **Perfil Hábitos Drogas:** Se basa en el perfil Consumo de Tabaco de IPS-CL. Este perfil se modificó para representar el consumo de drogas blandas y duras. Se agregó un ValueSet con códigos relacionados al consumo de Drogas duras y blandas.
+  - **Perfil Medicamentos:** Se basa en el perfil de Medicamentos de IPS-CL. Se modifica el ValueSet de medicamentos por uno que contiene las vitaminas que consume la paciente depediendo de su estado.
+  - **Perfil Observación Estado Embarazo:** Se basa en el perfil de Observación de Estado de embarazo de IPS-CL.
+  - **Perfil Observación Fecha de Parto Estimada:** Se basa en el perfil de Observación de Fecha estimada de parto de IPS-CL. Se adecuó el elemento performer referenciando solamente a la paciente, prestador o rol del prestador en caso de que se evalúe la precisión del dato entregado.
+  - **Perfil Observación Resultados Embarazo: Resumen:** Se basa en el perfil de Observación de Resultados de embarazos de IPS-CL.
+  - **Perfil Organización:** Se basa en el perfil Organización de IPS-CL.
+  - **Perfil Paciente:** Se basa en el perfil Paciente de IPS-CL. Se realizó un Slice Closed para identifier para aquellos pacientes que tienen como identificador RUN u otro tipo de identificador.
+  - **Perfil Prestador:** Se basa en el perfil Prestador de IPS-CL.
+  - **Perfil Procedimientos:** Se basa en el perfil Procedimientos de IPS-CL. Se modificó el ValueSet agregando procedimientos quirúrgicos y obstétricos que se realizó la paciente relacionados con el embarazo.
+  - **Perfil Rol Prestador:** Se basa en el perfil Rol de Prestador de IPS-CL. Se modificaron los ValueSet de Rol del profesional y Especialidad del profesional.
+  - **Perfil Uso De Medicamentos:** Se basa en el perfil Declaración de Medicación de IPS-CL.
+
+## Instancias
+
+## CodeSystem y ValueSets
+
+## Extensiones
 
 
-Se agregó la página con los objetivos general y específicos de la guía
-
-Se espera agregar los casos de uso
-Se debe editar el perfil Resultados de Embarazos, agregando una extensión y posiblemente un constrain
-Quitar perfil de Antecedentes de Tipo de Parto
-
-Se agregaron los siguientes perfiles:
-
-Perfil Alergias
-Se basa en el perfil Alergias de IPS-CL, restringiendo cardinalidades.
-Se habilita el ejemplo:
-Alergias - Ejemplo
-Perfil Bundle
-Se basa en el perfil Bundle de IPS-CL. (Se agregó esa modificación)
-Composition y Paciente siguen siendo los únicos recursos obligatorios.
-Se modificaron las referencias a los perfiles por los que se definieron en esta guía.
-Se habilitó el ejemplo:
-Bundle - Ejemplo
-Perfil Composition
-Se basa en el perfil Composition de IPS-CL. (Se agregó esa modificación)
-Las secciones obligatorias son: Condición, Medicamentos, Alergias, EMbarazo y Procedimientos.
-Se modificaron las referencias en las secciones por los perfiles que se definieron en esta guía.
-Se habilitó el ejemplo:
-Composition - Ejemplo
-Perfil Condición
-Se basa en el perfil Condición de IPS-CL.
-Se modifica el ValueSet proveniente de IPS por uno acorde a las patologías que puede sufrir una embarazada, denominado Condición de Salud o patologías de la paciente.
-Se hace referencia al elemento note para que se pueda agregar información adicional sobre alguna condición e incluso sobre la condición post-parto de la paciente.
-Se habilitó el ejemplo:
-Condición de salud
-Perfil Hábitos de Alcohol
-Se basa en el perfil Consumo de Alcohol de IPS-CL.
-Se agregó un ValueSet sobre códigos UCUM utilizados como unidad de medida.
-Se habilitó el ejemplo:
-Hábitos de Alcohol
-Perfil Hábitos Drogas
-Se basa en el perfil Consumo de Tabaco de IPS-CL.
-Este perfil se modificó para representar el consumo de drogas blandas y duras.
-Se agregó un ValueSet con códigos relacionados al consumo de Drogas duras y blandas.
-Se habilitó el ejemplo:
-Hábitos de consumo de drogas
-Perfil Medicamentos
-Se basa en el perfil de Medicamentos de IPS-CL.
-Se debiera modificar el ValueSet de medicamentos.
-Se habilitó el ejemplo:
-Medicamentos
-Perfil Observación Estado Embarazo
-Se basa en el perfil de Observación de Estado de embarazo de IPS-CL.
-Se hace referencia al elemento note para que se pueda agregar información adicional sobre el estado del embarazo de la paciente e incluso sobre signos y síntomas de acuerdo a su estado.
-Se habilitó el ejemplo:
-Observación Estado Embarazo
-Perfil Observación Fecha de Parto Estimada
-Se basa en el perfil de Observación de Fecha estimada de parto de IPS-CL.
-Se adecuó el elemento performer referenciando solamente a la paciente, prestador o rol del prestador en caso de que se evalúe la precisión del dato entregado.
-Se habilitó el ejemplo:
-Observación Fecha Estimada de Parto
-Perfil Observación Resultados Embarazo: Resumen
-Se basa en el perfil de Observación de Resultados de embarazos de IPS-CL.
-Se eliminó la extension fecha de antecedente, dado que existe effective[x].
-Se debe modificar para agregar una extensión a la observación sobre tipos de parto, agregando invariant rules para ver si se puede aplicar el dato solo si se utilizan ciertos valores del ValueSet. (VER)
-Se debería agregar el ValueSet Tipos de parto.
-Se habilitó el ejemplo:
-Observación Resultados de Embarazos
-Perfil Organización
-Se basa en el perfil Organización de IPS-CL.
-Se obliga telecom.
-Se habilitó el ejemplo:
-Organización
-Perfil Paciente
-Se basa en el perfil Paciente de IPS-CL.
-Se realizó un Slice Closed para identifier para aquellos pacientes que tienen como identificador RUN u otro tipo de identificador.
-Se obligó el slice NombreOficial. El otro elemento no quedó obligado.
-Se habilitó el ejemplo:
-Paciente
-Perfil Prestador
-Se basa en el perfil Prestador de IPS-CL.
-Se habilitó el ejemplo:
-Prestador
-Perfil Procedimientos
-Se basa en el perfil Procedimientos de IPS-CL.
-Se modificó el ValueSet agregando procedimientos quirúrgicos que se realizó la paciente relacionados con el embarazo.
-Se cambiaron las referencias de los elementos asserter, performer.actor y performer.onBehalfOf.
-Se hace referencia al elemento note para que se pueda agregar información adicional sobre el procedimiento que se ha realizado la paciente.
-Se habilitó el ejemplo:
-Procedimientos
-Perfil Rol Prestador
-Se basa en el perfil Rol de Prestador de IPS-CL.
-Se modificaron los ValueSet de Rol del profesional y Especialidad del profesional.
-Se habilitó el ejemplo:
-Rol Prestador
-Perfil Uso De Medicamentos
-Se basa en el perfil Declaración de Medicación de IPS-CL.
-Se cambiaron las referencias de los perfiles
-Se habilitó el ejemplo:
-Uso De Medicamentos
-Además, se agregaron los siguientes artefactos:
-CodeSystem:
-CSOtrosDatos
-Extensiones:
-Edad
-Tipos de Partos
-## Requisitos
-- Toda instalación debe ser en modo administrador dentro del computador.
-
-## Instalación
-
-- Instalar [**Visual Studio Code**](https://code.visualstudio.com/download), el cual servirá como editor de código.
-- Instalar **Java jdk** dependiendo de su sistema operativo. Para ello, ingresar a [Java-downloads](https://www.oracle.com/cl/java/technologies/downloads/) y seguir las instrucciones de instalación.
-- Instalar **Node js**. Para ello ingresar a [Node.js](https://nodejs.org/en) y seguir las instrucciones de instalación. Escribir *node -v* para verificar su versión.
 ```
 node -v
 ```
