@@ -83,4 +83,7 @@ Para más información visitar [ValueSets - Guía](https://build.fhir.org/ig/HL7
 Este apartado resulta ser uno de los más importantes dentro de una guía de implementación, debido que permite realizar una validación interna de todos los artefactos, dependencias, entre otros elementos que puedan generar errores y/o adevertencias dentro de la guía. 
 Para ello, una vez publicada la guía con los cambios generados, se recomienda **revisar este apartado**, ya que en ocasiones el comando *sushi .* no muestra todos los errores o advertencias, sino que los deja pasar al publicar la guía. En el video que se muestra a continuación, se observa el QA Report de esta guía de implementación.
 
-![QA-report](https://github.com/user-attachments/assets/d4494d51-c7db-4870-b9e2-003b2f6dd963)
+![image](https://github.com/user-attachments/assets/cb069281-bed6-4d59-9d78-32d38ab158c5)
+
+<img src="https://github.com/user-attachments/assets/d4494d51-c7db-4870-b9e2-003b2f6dd963" alt="terminologias" width="850" height="500">
+
