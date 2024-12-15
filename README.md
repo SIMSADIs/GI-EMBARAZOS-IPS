@@ -66,7 +66,7 @@ Ahora, ¡debiera estar configurado para comenzar a utilizar sushi para crear una
 
 SUSHI es un compilador de código que se basa en el lenguaje **FHIR Shorthand (FSH)**. Este es un lenguaje utilizado para definir el contenido de las guías de implementación, es decir, los artefactos FHIR. Para mayor detalle visitar el [Manual FHIR Shorthand](https://build.fhir.org/ig/HL7/fhir-shorthand/).
 
-## Mejores prácticas
+## Mejores prácticas: GitHub
 
 Para comenzar con el desarrollo de una guía de implementación, se recomienda descargar e instalar [GitHub Desktop](https://desktop.github.com/download/). Esto permitirá al usuario un manejo más sencillo de los archivos al estar almacenados en un repositorio.
 Para ello, los pasos a seguir son:
@@ -89,7 +89,7 @@ Posteriormente, se debe ingresar a [GitHub Sign in](https://github.com/login) y 
 ## SUSHI Init
 
 Luego de abrir la carpeta en Visual Studio Code, se deberá abrir el terminal. En el terminal se puede observar el directorio en el cual se van a ejecutar los comandos y crear los archivos.
-  - En el terminal, se deberá escribir y ejecutar el comando **sushi init .** El punto al final es muy importante, ya que permitirá que los archivos se creen directamente en el repositorio de github.
+  - En el terminal, se deberá escribir y ejecutar el comando **sushi init .** solo una vez. El punto al final es muy importante, ya que permitirá que los archivos se creen directamente en el repositorio de github.
     ```
     sushi init .
     ```
@@ -110,11 +110,12 @@ Y luego, para iniciar el proyecto en sushi se debe colocar *y*. Esto último per
 ```
 Initialize SUSHI project in C:\Users\aguil\Desktop\IPS-RESUMEN-EMBARAZOS\GI-EMBARAZOS? [y/n]: y
 ```
-Finalmente, ejecutar el siguiente comando para la generación de artefactos a modo de ejemplo:
+Finalmente, ejecutar el siguiente comando para la generación de artefactos:
 ```
 sushi .
 ```
-Todo esto se observa en la siguiente animación:
+
+Este último comando permitirá evidenciar si es que la guía está lista como para poder subirla al repositorio y publicar sus cambios para su visualización, o bien, permitirá observar la presencia de erroes y/o advertencias que se hayan generado. Cada vez que se quieran observar posbiles errores o resultados, ejecutar *sushi .*.
 
 ![vscode](https://github.com/user-attachments/assets/9abb73e6-b23e-4d13-a50b-5aca4d6ec77b)
 
@@ -139,14 +140,15 @@ Esto último es importante, ya que esta URL se utiliza en todos los recursos FHI
 
 ## Configuración de páginas - pagecontent
 
-Una guía de implementación puede contener múltiples páginas que redirigen a distinta información. Para ello, es necesario configurar tanto el *input* como el archivo *sushi-config.yaml*.
+Una guía de implementación puede contener múltiples páginas que redirigen a distinta información. Para ello, es necesario configurar tanto la carpeta *input* como el archivo *sushi-config.yaml*.
+
 ### Input
 
-Cuando se ejecuta *sushi init .*, se crea una carpeta denominada **input**. Dentro de ella, se tiene lo siguiente:
+Al momento de ejecutar *sushi init .*, se crea una carpeta denominada **input**, la cual contiene lo siguiente:
   - Una carpeta denominada **fsh**, la cual debe contener todos los artefactos generados, desde perfiles hasta instancias, extensiones y terminologías.
   - Una carpeta denominada **pagecontent** que deberá contener todas las páginas creadas en la guía de implementación. Generalmente son archivos tipo *Nombre_carpeta.md*.
-  - Y ya si es que se requiere de imagenes, **input** puede contener una carpeta denominada **images** y/o una carpeta denominada **images-source**.
-     - La carpeta **images** contiene imágenes .png o .svg que se quieran agregar a cualquiera de las páginas. Estas suelen agregarse de este modo:
+  - Y si es que se requiere de imagenes, **input** puede contener una carpeta denominada **images** y/o una carpeta denominada **images-source**.
+    - La carpeta **images** puede contener imágenes *.png* o *.svg*. Estas suelen agregarse dentro de las páginas de este modo:
     ```
     <br>
     <div align="center">
@@ -155,7 +157,11 @@ Cuando se ejecuta *sushi init .*, se crea una carpeta denominada **input**. Dent
     </div>
     <br>
     ```
-     - La carpeta **images-source** contiene diagramas .plantuml generalmente desarrollados por medio de *Plantuml* dentro de Visual Studio. Estos se agregan de esta forma:
+    - La carpeta **images-source** contiene diagramas en formato *.plantuml*, los cuales son desarrollados por medio de *Plantuml* dentro de Visual Studio. Para ello, se recomienda buscar e instalar las extensiones dentro de Visual Studio Code, siendo la primera **PlantUML Previewer** y la segunda **PlantUML**.
+      
+    ![image](https://github.com/user-attachments/assets/43a2cce8-bc97-45c3-acc1-5606ce9cdf6c)
+
+    - Generalmente, este es el formato a seguir para agregar un diagrama *.plantuml* dentro de un archivo:
     ```
     <div align="center" >
       {% include Nombre_diagrama.svg %}
@@ -167,9 +173,40 @@ Cuando se ejecuta *sushi init .*, se crea una carpeta denominada **input**. Dent
 Además de las otras configuraciones, en este archivo se pueden habilitar la cantidad de páginas que se quieren agregar a la guía:
 
   - En *pages* se deberán colocar las páginas ya sea *.md* o *.html* con su respectivo título.
-  - En *menu* se deberá colocar cada una de las páginas con un nombre y su referencia a como se configuraron en *pages*. Estas deben ser *.html*.
+  - En *menu* se deberá colocar cada una de las páginas con un nombre y su respectiva referencia a como se configuraron en *pages*. Estas deben ser *.html*.
 
-- Para un mayor entendimiento, visualizar los archivos de esta guía contenidos en este repositorio. Además, puede consultar [Estructura de un proyecto sushi](https://fshschool.org/docs/sushi/project/) para más información.
+- Para un mejor entendimiento de todos los archivos, visualizar el contenido de este repositorio. Además, puede consultar [Estructura de un proyecto sushi](https://fshschool.org/docs/sushi/project/) para mayor información.
+
+## Guardar y publicar la guía
+
+Una vez se tenga seguridad de querer visualizar los cambios dentro de la guía de implementación, y haber ejecutado el comando *sushi .*, se debe realizar lo siguiente:
+
+### 1. En GitHub: git add ., git commit -m y git push
+
+Para subir cualquier información y archivos de la guía de implementación al repositorio de github, es necesario ejecutar los siguientes comandos en este orden y uno tras otro, en la terminal de Visual Studio:
+1) El primero corresponde a un paso previo para confirmar los cambios en el repositorio local. Indica los cambios a incluir en el siguiente commit.
+```
+git add .
+```
+2) El siguiente comando registra los cambios que has preparado en el repositorio local, escribiendo un mensaje que explique el propósito de los cambios generados.
+```
+git commit -m "Ejemplo: Cambios generados"
+```
+3) El último comando permite subir los cambios realizados al repositorio remoto (de GitHub), en la rama que se está trabajando.
+```
+git push
+```
+- Con *git branch* se puede revisar en qué rama del repositorio se está trabajando.
+
+### 2. Con el comando genonce
+
+**Genonce** es un comando que permite ejecutar *IG Publisher* para generar y compilar la guía de manera local. Para ello, ejecutar el siguiente comando en windows:
+```
+_genonce.bat
+```
+Esto puede tardar varios minutos, pero finalmente generará la guía en una carpeta denominada *output* dentro de la carpeta donde se encuentran almacenados todos los archivos del proyecto. Allí, se encuentra un archivo *html* que corresponde a la guía de implementación. Con esto ya puedes visualizar la guía de manera local!
+
+![Guia-emb](https://github.com/user-attachments/assets/f2ffc5f9-2d27-4656-b986-f66bbcd359e1)
 
 ## Package archivos
 **En caso de que se quiera realizar**
@@ -180,7 +217,7 @@ https://build.fhir.org/ig/HL7Chile-BiomedicaUv/IPS-Embarazo/package.tgz
 ```
 Esto descargará un archivo comprimido con todos los artefactos FHIR incluidos en la guía de implementación. Se debe descomprimir para visualizar su contenido, como se observa a continuación.
 
-<img src="https://github.com/user-attachments/assets/8b6710c0-c44e-46a1-92d1-aa6a3bf13b82" alt="jekyll" width="600" height="500">
+<img src="https://github.com/user-attachments/assets/8b6710c0-c44e-46a1-92d1-aa6a3bf13b82" alt="jekyll" width="630" height="500">
 
 Tener el package permitirá:
   - Validar los recursos FHIR asociados a los perfiles de la guía.
