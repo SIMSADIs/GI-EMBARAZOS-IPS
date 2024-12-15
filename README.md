@@ -78,13 +78,13 @@ Para ello, los pasos a seguir son:
  ```
 Posteriormente, se debe ingresar a [GitHub Sign in](https://github.com/login) y seleccionar donde dice **New Repository** para crear un nuevo repositorio, esto con el fin de que se almacenen todos los archivos y la información correspondiente. El repositorio debe llevar un nombre específico, en este proyecto se denomina GI-EMBARAZOS-IPS.
 
-![createrepo1](https://github.com/user-attachments/assets/485d9891-2b52-4a8f-860d-31c8861fe4d9)
+![create_repo](https://github.com/user-attachments/assets/8f54c9d9-6797-4e56-98ed-e3e7ef732fe1)
 
 - Luego, se debe seleccionar el botón **Code** y posteriormente escoger la opción **Open with GitHub Desktop**. Esto permitirá que el repositorio se abra en el github de escritorio instalado previamente.
 - En GitHub Desktop se debe elegir la ubicación donde se descargará el repositorio, y luego se debe hacer presionar el botón **Clone**.
 - Una vez clonado el repositorio, se deberá hacer click derecho sobre la carpeta del repositorio y seleccionar **abrir con Visual Studio Code**. ¡Y Listo! Ya tendrás la carpeta creada en la cual podrás comenzar a desarrollar tu guía de implementación.
 
-![clonarrepo](https://github.com/user-attachments/assets/74f92cb0-c542-4c15-ab64-0dba44cd9c15)
+![clonar_repo](https://github.com/user-attachments/assets/c1f04655-450f-46b9-b65f-3a136f5c1403)
 
 ## SUSHI Init
 
