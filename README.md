@@ -78,7 +78,7 @@ Para ello, los pasos a seguir son:
  ```
 Posteriormente, se debe ingresar a [GitHub Sign in](https://github.com/login) y seleccionar donde dice **New Repository** para crear un nuevo repositorio, esto con el fin de que se almacenen todos los archivos y la información correspondiente. El repositorio debe llevar un nombre específico, en este proyecto se denomina GI-EMBARAZOS-IPS.
 
-![createrepo](https://github.com/user-attachments/assets/622068f4-7c20-462b-a8e9-1972d32e74fb)
+![createrepo1](https://github.com/user-attachments/assets/485d9891-2b52-4a8f-860d-31c8861fe4d9)
 
 - Luego, se debe seleccionar el botón **Code** y posteriormente escoger la opción **Open with GitHub Desktop**. Esto permitirá que el repositorio se abra en el github de escritorio instalado previamente.
 - En GitHub Desktop se debe elegir la ubicación donde se descargará el repositorio, y luego se debe hacer presionar el botón **Clone**.
