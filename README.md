@@ -1,4 +1,4 @@
-# Guía de Implementación de Resumen de Datos Clínicos de Pacientes Embarazadas basada en IPC-CL.
+# Guía de Implementación de Resumen de Datos Clínicos de Pacientes Embarazadas basada en IPS-CL.
 
 Esta guía de implementación busca ser un caso de uso específico de la guía de implementación de resumenes clínicos de pacientes a nivel nacional (IPS-CL), tomando como referencia la misma guía IPS-CL y la guía Cl Core para su desarrollo. La incorporación de la guía IPS nacional en la adaptación del caso de uso de resumen de embarazos, permite establecer perfiles FHIR específicos que representan la información clínica mínima necesaria para la conformación de resumenes de pacientes embarazadas a nivel nacional.
 
