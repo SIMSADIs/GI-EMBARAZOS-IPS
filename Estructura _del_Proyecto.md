@@ -71,8 +71,16 @@ Los perfiles, los cuales se pueden visualizar en [Perfiles Guía](https://build.
 <img src="https://github.com/user-attachments/assets/064d4f17-956e-480b-ae24-4ca2c033253d" alt="terminologias" width="850" height="550">
 
 Para más información visitar [ValueSets - Guía](https://build.fhir.org/ig/HL7Chile-BiomedicaUv/IPS-Embarazo/artifacts.html#terminology-value-sets) y [CodeSystem - Guía](https://build.fhir.org/ig/HL7Chile-BiomedicaUv/IPS-Embarazo/artifacts.html#terminology-code-systems).
+
 ## Extensiones
 
 - Se definió solo una extensión que corresponde a la edad del paciente dentro del perfil Paciente. Si bien esta es una extensión ya definida en otras guías de implementación, se definió nuevamente para permitir que sea más personalizable si es que así se requiere. Para más información visitar [Extensión - Guía](https://build.fhir.org/ig/HL7Chile-BiomedicaUv/IPS-Embarazo/artifacts.html#structures-extension-definitions).
   
 ![image](https://github.com/user-attachments/assets/902d705f-d0ab-4594-acff-749214c08b99)
+
+# QA Report
+
+Este apartado resulta ser uno de los más importantes dentro de una guía de implementación, debido que permite realizar una validación interna de todos los artefactos, dependencias, entre otros elementos que puedan generar errores y/o adevertencias dentro de la guía. 
+Para ello, una vez publicada la guía con los cambios generados, se recomienda **revisar este apartado**, ya que en ocasiones el comando *sushi .* no muestra todos los errores o advertencias, sino que los deja pasar al publicar la guía. En el video que se muestra a continuación, se observa el QA Report de esta guía de implementación.
+
+![QA-report](https://github.com/user-attachments/assets/d4494d51-c7db-4870-b9e2-003b2f6dd963)
