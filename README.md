@@ -47,7 +47,7 @@ node -v
   ```
   jekyll -v
   ```
-  <img src="https://github.com/user-attachments/assets/8a42106c-d7ba-40c6-abdd-cfc654dff340" alt="jekyll" width="550" height="350">
+  <img src="https://github.com/user-attachments/assets/8a42106c-d7ba-40c6-abdd-cfc654dff340" alt="jekyll" width="550" height="300">
 
 - Se recomienda agregar *java* en las variables de entorno.
   - Para ello, buscar **variables de entorno** en el buscador de windows, y seleccionar el botón **variables de entorno**.
@@ -122,12 +122,72 @@ Todo esto se observa en la siguiente animación:
 
 ## Configuración del archivo sushi-config.yaml
 
-Toda guía de implementación cuenta con un archivo denominado **sushi-config.yaml**, en el cual se configura la estructura y dependencias de una guía de implementación. En él se pueden editar metadatos (nombre de la guía, versión, estado, etc) así como taambién escribir todas las dependencias de la guía, es decir, los paquetes o recursos externos que la guía necesita para funcionar correctamente.
+Toda guía de implementación cuenta con un archivo denominado **sushi-config.yaml**, en el cual se configura la estructura y dependencias de una guía de implementación. En él se pueden editar metadatos (nombre de la guía, versión, estado, url canónica, etc) así como también escribir todas las dependencias de la guía, es decir, los paquetes o recursos externos que la guía necesita para funcionar correctamente.
+
 En el caso de esta guía de implementación, las dependencias son:
-  - [Guía IPS CL](https://hl7chile.cl/fhir/ig/clips/0.2.0/)
-  - [Guía Core CL](https://hl7chile.cl/fhir/ig/clcore/1.9.1/)
-  - [Guía IPS Internacional](https://build.fhir.org/ig/HL7/fhir-ips/)
+  - [Guía IPS CL](https://hl7chile.cl/fhir/ig/clips/0.2.0/): Para este proyecto resulta necesario contar con la guía IPS-CL en su versión 0.2.0, debido a que es la base mediante la cual se desarrollan los artefactos FHIR necesarios para la guía de implementación de resumen de embarazos a nivel nacional. Al ser una guía genérica, permite su adaptabilidad a distintos casos de uso. 
+  - [Guía Core CL](https://hl7chile.cl/fhir/ig/clcore/1.9.1/): La guía Core-CL establece las reglas y requerimientos necesarios para aplicar FHIR bajo el contexto nacional. Esta debe utilizarse para el desarrollo de cualquier guía de implementación. En este caso, la guía de resumen de datos de embarazos referencia indirectamente la Core-CL debido a que la guía IPS-CL la utiliza para su desarrollo.
+  - [Guía IPS Internacional](https://build.fhir.org/ig/HL7/fhir-ips/): La guía IPS internacional en su versión 2.0.0, permite definir la estructura de los artefactos FHIR necesarios para la generación de un resumen de pacientes a nivel internacional en modo de documento clínico (Bundle Document). A partir de esta guía, se llevó a cabo la guía IPS nacional.
+
+Mientras que la URL canónica, la cual apunta la versión actual de la guía de implementación, corresponde a:
+```
+https://hl7chile.cl/fhir/ig/clembarazos
+```
+Esto último es importante, ya que esta URL se utiliza en todos los recursos FHIR de la guía. Generalmente, todas las canonical tienen una estructura similar.
 
 - Consultar la [documentación de SUSHI/configuration](https://fshschool.org/docs/sushi/configuration/) para mayor información.
 
-## Package archivos...
+## Configuración de páginas - pagecontent
+
+Una guía de implementación puede contener múltiples páginas que redirigen a distinta información. Para ello, es necesario configurar tanto el *input* como el archivo *sushi-config.yaml*.
+### Input
+
+Cuando se ejecuta *sushi init .*, se crea una carpeta denominada **input**. Dentro de ella, se tiene lo siguiente:
+  - Una carpeta denominada **fsh**, la cual debe contener todos los artefactos generados, desde perfiles hasta instancias, extensiones y terminologías.
+  - Una carpeta denominada **pagecontent** que deberá contener todas las páginas creadas en la guía de implementación. Generalmente son archivos tipo *Nombre_carpeta.md*.
+  - Y ya si es que se requiere de imagenes, **input** puede contener una carpeta denominada **images** y/o una carpeta denominada **images-source**.
+     - La carpeta **images** contiene imágenes .png o .svg que se quieran agregar a cualquiera de las páginas. Estas suelen agregarse de este modo:
+    ```
+    <br>
+    <div align="center">
+      <img src="Nombre_imagen.png" style="width:70%"> 
+      <p>Pie de imagen</p>
+    </div>
+    <br>
+    ```
+     - La carpeta **images-source** contiene diagramas .plantuml generalmente desarrollados por medio de *Plantuml* dentro de Visual Studio. Estos se agregan de esta forma:
+    ```
+    <div align="center" >
+      {% include Nombre_diagrama.svg %}
+    </div>
+    <br clear="all"/>
+    ```
+### sushi-config.yaml
+
+Además de las otras configuraciones, en este archivo se pueden habilitar la cantidad de páginas que se quieren agregar a la guía:
+
+  - En *pages* se deberán colocar las páginas ya sea *.md* o *.html* con su respectivo título.
+  - En *menu* se deberá colocar cada una de las páginas con un nombre y su referencia a como se configuraron en *pages*. Estas deben ser *.html*.
+
+- Para un mayor entendimiento, visualizar los archivos de esta guía contenidos en este repositorio. Además, puede consultar [Estructura de un proyecto sushi](https://fshschool.org/docs/sushi/project/) para más información.
+
+## Package archivos
+**En caso de que se quiera realizar**
+
+Una vez establecidas las dependencias, por medio de la URL web de la guía de implementación se puede colocar la extensión **package.tgz** para descargar los paquetes asociados a la guía. Ejemplo: 
+```
+https://build.fhir.org/ig/HL7Chile-BiomedicaUv/IPS-Embarazo/package.tgz
+```
+Esto descargará un archivo comprimido con todos los artefactos FHIR incluidos en la guía de implementación. Se debe descomprimir para visualizar su contenido, como se observa a continuación.
+
+<img src="https://github.com/user-attachments/assets/8b6710c0-c44e-46a1-92d1-aa6a3bf13b82" alt="jekyll" width="600" height="500">
+
+Tener el package permitirá:
+  - Validar los recursos FHIR asociados a los perfiles de la guía.
+  - Garantizar que se utilizan los artefactos correctos
+  - Garantiza que se trabaje con artefactos de una versión específica y estable.
+  - Permite usar los artefactos localmente en caso de problemas con el servidor o GitHub.
+    
+Hay que tener en consideración que se debe desarrollar el contenido de la guía para posteriormente descargar el archivo.
+
+
