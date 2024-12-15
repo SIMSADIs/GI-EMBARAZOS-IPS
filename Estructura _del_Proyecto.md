@@ -23,11 +23,11 @@ Para más información visitar [Guía Resumen Embarazos - Inicio](https://build.
    ```
    PUT [URL_Base]/{TypeResource}/[id]
    ```
-El siguiente diagrama representa las transacciones y operaciones FHIR por caso de uso:
+   El siguiente diagrama representa las transacciones y operaciones FHIR por caso de uso:
   
-<img src="https://github.com/user-attachments/assets/73eadd01-ae49-4df6-a28a-71afe0af3dda" alt="caso uso" width="550" height="600">
+   <img src="https://github.com/user-attachments/assets/73eadd01-ae49-4df6-a28a-71afe0af3dda" alt="caso uso" width="550" height="600">
 
-Visitar [Casos de Uso - Guía](https://build.fhir.org/ig/HL7Chile-BiomedicaUv/IPS-Embarazo/Casos-de-uso.html) para más información.
+   Visitar [Casos de Uso - Guía](https://build.fhir.org/ig/HL7Chile-BiomedicaUv/IPS-Embarazo/Casos-de-uso.html) para más información.
 
 4. **Página de Artefactos:** Contiene todos los artefactos FHIR creados a partir de la guía de implementación IPS-CL. Estos artefactos comprenden los perfiles, ejemplos, extensiones y terminologías como ValueSets y CodeSystem. Visitar [Artefactos Guía Resumen Embarazos](https://build.fhir.org/ig/HL7Chile-BiomedicaUv/IPS-Embarazo/artifacts.html) para más información. En caso de requerir mayor detalle sobre cómo utilizar e implementar cada uno de los artefactos FHIR visitar el [Manual FHIR Shorthand](https://build.fhir.org/ig/HL7/fhir-shorthand/reference.html).
 
