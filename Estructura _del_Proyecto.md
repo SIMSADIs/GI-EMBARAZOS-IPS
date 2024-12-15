@@ -1,11 +1,15 @@
 # Estructura de la Guía de Implementación de Resumen de Datos Clínicos de Pacientes Embarazadas
 
 Esta guía de implementación cuenta con las siguientes páginas, donde en cada una de ellas se define su respectivo contenido:
-- Página de inicio: Contiene el alcance de la guía, contexto, descripción, contenido de la guía y aspectos generales. Este último punto hace referencia al **proceso de solicitud de resumenes clínicos de pacientes**.
-- 
+- Página de inicio: Contiene el alcance de la guía, contexto, descripción, contenido de la guía y aspectos generales. Este último punto hace referencia al **proceso de solicitud de resumenes clínicos de pacientes**, el cual se puede observar en la siguiente imagen.
+ 
 ![image](https://github.com/user-attachments/assets/41d361fd-6225-4b9e-8043-e45072a6c29e)
 
+- Página de Objetivos: Contiene tanto el objetivo general de la guía como los objetivos específicos de la misma.
+- Página de Casos de Uso: Contiene los casos de uso a partir del proceso identificado. Además, se establecen las operaciones FHIR a utilizar cuando se solicita un resumen, se crea y/o se actualiza un recurso. A modo de resumen, se tiene el siguiente diagrama con las transacciones por caso de uso:
+  
 
+[Modelo Logico Datos](https://github.com/SIMSADIs/GI-EMBARAZOS-IPS/blob/main/Modelo%20L%C3%B3gico%20de%20Datos.xlsx)
 
 Esta guía de implementación está compuesta de los siguientes artefactos FHIR:
 
@@ -13,12 +17,7 @@ Esta guía de implementación está compuesta de los siguientes artefactos FHIR:
 
 Esta guía se compone de un total de 17 perfiles, cada uno adaptado de acuerdo a lo referenciado a partir de la IPS nacional. Estos perfiles cuentan con sus propias reglas de cardinalidad, haciendo que algunos elementos se vuelvan obligatorios, cambiando además su repetibilidad, entre otros elementos que se mencionarán a continuación:
 
-Se agregó en la página de Inicio lo siguiente:
-El alcance de la guía
-Contexto de la guía
-Descripción
-Contenido de la guía
-Aspectos Generales (Proceso)
+
 Se agregó la página con los objetivos general y específicos de la guía
 
 Se espera agregar los casos de uso
