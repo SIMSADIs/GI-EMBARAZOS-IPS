@@ -2,7 +2,7 @@
 
 Esta guía de implementación busca ser un caso de uso específico de la guía de implementación de resumenes clínicos de pacientes a nivel nacional (IPS-CL), tomando como referencia la misma guía IPS-CL y la guía Cl Core para su desarrollo. La incorporación de la guía IPS nacional en la adaptación del caso de uso de resumen de embarazos, permite establecer perfiles FHIR específicos que representan la información clínica mínima necesaria para la conformación de resumenes de pacientes embarazadas a nivel nacional.
 
-Un resumen de datos clínicos de pacientes embarazadas es un documento clínico que contiene la información más relevante del sujeto de atención, en este caso, información relacionada al estado del embarazo de la paciente, fecha estimada de parto, resultados o antecedentes de embarazos anteriores, además de condiciones de salud y otros datos escenciales para brindar una atención de calidad y más enfocada en la propia paciente que en la lectura y documentación de datos.
+Un resumen de datos clínicos de pacientes embarazadas es un documento clínico que contiene la información más relevante del sujeto de atención, en este caso, información relacionada al estado del embarazo de la paciente, fecha estimada de parto, resultados o antecedentes de embarazos anteriores, además de condiciones de salud y otros datos esenciales para brindar una atención de calidad y más enfocada en la propia paciente que en la lectura y documentación de datos.
 
 # Instalación previa y requisitos
 
@@ -56,7 +56,7 @@ node -v
   ```
   C:Program Files\Java\jdk-22\bin
   ```
-  - Finalmente, en **variables de usuario**, sese deberá seleccionar el botón **Nueva**. Allí, colocar **JAVA_HOME** como nombre de la variable, mientras que en el valor de la variable, se deberá colocar la carpeta que almacena el archivo de Java. Ejemplo:
+  - Finalmente, en **variables de usuario**, se deberá seleccionar el botón **Nueva**. Allí, colocar **JAVA_HOME** como nombre de la variable, mientras que en el valor de la variable, se deberá colocar la carpeta que almacena el archivo de Java. Ejemplo:
   ```
   C:Program Files\Java\jdk-22
   ```
@@ -115,7 +115,7 @@ Finalmente, ejecutar el siguiente comando para la generación de artefactos:
 sushi .
 ```
 
-Este último comando permitirá evidenciar si es que la guía está lista como para poder subirla al repositorio y publicar sus cambios para su visualización, o bien, permitirá observar la presencia de erroes y/o advertencias que se hayan generado. Cada vez que se quieran observar posbiles errores o resultados, ejecutar *sushi .*.
+Este último comando permitirá evidenciar si es que la guía está lista como para poder subirla al repositorio y publicar sus cambios para su visualización, o bien, permitirá observar la presencia de erroes y/o advertencias que se hayan generado. Cada vez que se quieran observar posbiles errores o resultados, ejecutar *"sushi ."* .
 
 ![vscode](https://github.com/user-attachments/assets/9abb73e6-b23e-4d13-a50b-5aca4d6ec77b)
 
@@ -127,7 +127,7 @@ Toda guía de implementación cuenta con un archivo denominado **sushi-config.ya
 
 En el caso de esta guía de implementación, las dependencias son:
   - [Guía IPS CL](https://hl7chile.cl/fhir/ig/clips/0.2.0/): Para este proyecto resulta necesario contar con la guía IPS-CL en su versión 0.2.0, debido a que es la base mediante la cual se desarrollan los artefactos FHIR necesarios para la guía de implementación de resumen de embarazos a nivel nacional. Al ser una guía genérica, permite su adaptabilidad a distintos casos de uso. 
-  - [Guía Core CL](https://hl7chile.cl/fhir/ig/clcore/1.9.1/): La guía Core-CL establece las reglas y requerimientos necesarios para aplicar FHIR bajo el contexto nacional. Esta debe utilizarse para el desarrollo de cualquier guía de implementación. En este caso, la guía de resumen de datos de embarazos referencia indirectamente la Core-CL debido a que la guía IPS-CL la utiliza para su desarrollo.
+  - [Guía Core CL](https://hl7chile.cl/fhir/ig/clcore/1.9.1/): La guía Core-CL establece las reglas y requerimientos necesarios para aplicar FHIR bajo el contexto nacional. Esta debe utilizarse para el desarrollo de cualquier guía de implementación. En este caso, la guía de resumen de datos de embarazos referencia indirectamente la Core-CL en su versión 1.9.1 debido a que la guía IPS-CL la utiliza para su desarrollo.
   - [Guía IPS Internacional](https://build.fhir.org/ig/HL7/fhir-ips/): La guía IPS internacional en su versión 2.0.0, permite definir la estructura de los artefactos FHIR necesarios para la generación de un resumen de pacientes a nivel internacional en modo de documento clínico (Bundle Document). A partir de esta guía, se llevó a cabo la guía IPS nacional.
 
 Mientras que la URL canónica, la cual apunta la versión actual de la guía de implementación, corresponde a:
