@@ -1,0 +1,27 @@
+@startuml
+
+group POST Solicitud de Resumen
+Sistema -> Repositorio_IPS : $Summary
+activate Repositorio_IPS
+Repositorio_IPS -> Repositorio_IPS : Verifica factibilidad del resumen
+Repositorio_IPS --> Sistema : Bundle Document o aviso
+deactivate Repositorio_IPS
+end
+
+group POST Crear Recursos
+Sistema -> Repositorio_IPS : POST Crear Recurso
+activate Repositorio_IPS
+Repositorio_IPS -> Repositorio_IPS : Validación
+Repositorio_IPS --> Sistema : Recurso creado
+deactivate Repositorio_IPS
+end
+
+group PUT Actualizar Recursos
+Sistema -> Repositorio_IPS : PUT Actualizar Recursos
+activate Repositorio_IPS
+Repositorio_IPS -> Repositorio_IPS : Validación
+Repositorio_IPS --> Sistema : Recursos actualizados
+deactivate Repositorio_IPS
+end
+
+@enduml

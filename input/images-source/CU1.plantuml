@@ -1,0 +1,11 @@
+@startuml
+
+group POST/GET Solicitud de Resumen
+Sistema -> Repositorio_IPS : $Summary
+activate Repositorio_IPS
+Repositorio_IPS -> Repositorio_IPS : Verifica factibilidad del resumen
+Repositorio_IPS --> Sistema : Bundle Document o aviso
+deactivate Repositorio_IPS
+end
+
+@enduml

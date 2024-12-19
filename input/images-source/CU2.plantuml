@@ -1,0 +1,11 @@
+@startuml
+
+group POST Crear Recursos
+Sistema -> Repositorio_IPS : POST Crear Recurso
+activate Repositorio_IPS
+Repositorio_IPS -> Repositorio_IPS : Validación
+Repositorio_IPS --> Sistema : Recurso creado
+deactivate Repositorio_IPS
+end
+
+@enduml

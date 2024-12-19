@@ -1,0 +1,11 @@
+@startuml
+
+group PUT Actualizar Recursos
+Sistema -> Repositorio_IPS : PUT Actualizar Recursos
+activate Repositorio_IPS
+Repositorio_IPS -> Repositorio_IPS : Validación
+Repositorio_IPS --> Sistema : Recursos actualizados
+deactivate Repositorio_IPS
+end
+
+@enduml
