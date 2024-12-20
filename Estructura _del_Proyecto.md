@@ -14,6 +14,7 @@ Para más información visitar [Guía Resumen Embarazos - Inicio](https://build.
    - ***Para la solicitud del resumen:***
    ```
    POST [base]/Patient/[id]/$summary
+   GET [base]/Patient/[id]/$summary
    ```
    - ***Para la creación de un recurso:***
    ```
